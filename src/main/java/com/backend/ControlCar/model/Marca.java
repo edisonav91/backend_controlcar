@@ -1,25 +1,23 @@
 package com.backend.ControlCar.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.List;
 
 @Entity
-@Table(name = "Marcas")
+@Data
+@Table(name = "marcas")
 public class Marca {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    public int idReferencia;
+    public int idMarca;
 
-    public String marcaNombre;
+    @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Referencia> referencias;
 
-    public Marca (){
-
-    }
-
-    public Marca (int idReferencia, String marcaNombre) {
-        this.idReferencia = idReferencia;
-        this.marcaNombre = marcaNombre;
-    }
+    public String nombre;
 }
 
 
