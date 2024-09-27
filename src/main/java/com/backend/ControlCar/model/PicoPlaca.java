@@ -2,6 +2,8 @@ package com.backend.ControlCar.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import lombok.Data;
 
 
@@ -13,7 +15,11 @@ public class PicoPlaca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPicoPlaca;
-    private LocalDateTime dia;
+
+    @OneToMany(mappedBy = "picoPlaca", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Inventario> inventarios;
+
+   private LocalDateTime dia;
 
     private int numero;
 
