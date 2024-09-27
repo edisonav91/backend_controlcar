@@ -14,6 +14,9 @@ public class Referencia {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idReferencia;
 
+    @OneToMany(mappedBy = "referencia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Vehiculo> vehiculos;
+
     private String nombre;
 
     @ManyToOne()

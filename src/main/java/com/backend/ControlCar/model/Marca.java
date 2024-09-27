@@ -15,7 +15,7 @@ public class Marca {
     public int idMarca;
 
     @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Referencia> referencias;
+    private List<Referencia> referencia;
 
     public String nombre;
 }
