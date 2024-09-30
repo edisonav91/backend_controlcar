@@ -20,8 +20,6 @@ public class Marca {
 
     public String nombre;
 
-    public interface MarcaRepository extends JpaRepository<Marca, Integer> {
-    }
 
 }
 

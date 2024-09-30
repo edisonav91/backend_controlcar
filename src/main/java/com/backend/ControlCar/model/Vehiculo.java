@@ -43,7 +43,4 @@ public class Vehiculo {
     @JoinColumn(name = "idReferencia")
     private Referencia referencia;
 
-    public interface VehiculoRepository extends JpaRepository<Vehiculo, Integer> {
-    }
-
 }

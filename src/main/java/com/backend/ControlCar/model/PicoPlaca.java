@@ -26,7 +26,5 @@ public class PicoPlaca {
 
     private boolean vigente;
 
-    public interface PicoPlacaRepository extends JpaRepository<PicoPlaca, Integer> {
-    }
 
 }

@@ -32,8 +32,5 @@ public class Inventario {
     @JoinColumn(name = "id_pico_placa")
     private PicoPlaca picoPlaca;
 
-    public interface InventarioRepository extends JpaRepository<Inventario, Integer> {
-
-    }
 
 }

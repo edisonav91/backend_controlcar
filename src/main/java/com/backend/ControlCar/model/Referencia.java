@@ -24,8 +24,6 @@ public class Referencia {
     @JoinColumn(name = "id_marca")
     private Marca marca;
 
-    public interface ReferenciaRepository extends JpaRepository<Referencia, Integer> {
-    }
 
 }
 

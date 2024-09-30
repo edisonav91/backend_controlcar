@@ -27,7 +27,5 @@ public class Documento {
     @JoinColumn(name = "idVehiculo")
     private Vehiculo vehiculo;
 
-    public interface DocumentoRepository extends JpaRepository<Documento, Integer> {
-    }
 
 }

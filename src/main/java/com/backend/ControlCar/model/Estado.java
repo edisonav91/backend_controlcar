@@ -20,6 +20,4 @@ public class Estado {
 
     private String nombre;
 
-    public interface EstadoRepository extends JpaRepository<Estado, Integer> {
-    }
 }
