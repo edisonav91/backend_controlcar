@@ -2,6 +2,7 @@ package com.backend.ControlCar.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
@@ -18,6 +19,10 @@ public class Marca {
     private List<Referencia> referencia;
 
     public String nombre;
+
+    public interface MarcaRepository extends JpaRepository<Marca, Integer> {
+    }
+
 }
 
 

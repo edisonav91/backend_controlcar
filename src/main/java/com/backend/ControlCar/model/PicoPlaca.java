@@ -3,6 +3,7 @@ package com.backend.ControlCar.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import lombok.Data;
 
@@ -24,5 +25,8 @@ public class PicoPlaca {
     private int numero;
 
     private boolean vigente;
+
+    public interface PicoPlacaRepository extends JpaRepository<PicoPlaca, Integer> {
+    }
 
 }

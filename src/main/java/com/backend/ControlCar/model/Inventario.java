@@ -3,6 +3,7 @@ package com.backend.ControlCar.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import lombok.Data;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
@@ -30,5 +31,9 @@ public class Inventario {
     @ManyToOne()
     @JoinColumn(name = "id_pico_placa")
     private PicoPlaca picoPlaca;
+
+    public interface InventarioRepository extends JpaRepository<Inventario, Integer> {
+
+    }
 
 }

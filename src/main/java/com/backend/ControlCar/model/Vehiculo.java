@@ -2,6 +2,7 @@ package com.backend.ControlCar.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
@@ -41,5 +42,8 @@ public class Vehiculo {
     @ManyToOne()
     @JoinColumn(name = "idReferencia")
     private Referencia referencia;
+
+    public interface VehiculoRepository extends JpaRepository<Vehiculo, Integer> {
+    }
 
 }

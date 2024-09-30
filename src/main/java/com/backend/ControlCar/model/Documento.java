@@ -3,6 +3,7 @@ package com.backend.ControlCar.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import lombok.Data;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
 @Entity
@@ -14,8 +15,6 @@ public class Documento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDocumento;
 
-
-
     private String nombre;
 
     private LocalDateTime fechaInicioVigencia;
@@ -25,7 +24,10 @@ public class Documento {
     private boolean activo;
 
     @ManyToOne()
-    @JoinColumn(name = "id_vehiculo")
+    @JoinColumn(name = "idVehiculo")
     private Vehiculo vehiculo;
+
+    public interface DocumentoRepository extends JpaRepository<Documento, Integer> {
+    }
 
 }
