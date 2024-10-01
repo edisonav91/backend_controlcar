@@ -12,8 +12,7 @@ public class ControlCarApplication {
 		SpringApplication.run(ControlCarApplication.class, args);
 	}
 
-	public interface DocumentoRepository extends JpaRepository<Documento, Integer> {
-	}
+
 
 	public interface EstadoRepository extends JpaRepository<Estado, Integer> {
 	}

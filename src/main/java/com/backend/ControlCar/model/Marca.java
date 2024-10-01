@@ -20,7 +20,6 @@ public class Marca {
 
     public String nombre;
 
-
 }
 
 
