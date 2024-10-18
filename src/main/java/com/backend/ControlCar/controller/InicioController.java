@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class InicioController {
     @GetMapping("/inicio")
     public String inicio(Model model) {
-        model.addAttribute("pageTitle", "Mi Página Dinámica");
         return "inicio";
     }
 }
