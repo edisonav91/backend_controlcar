@@ -26,6 +26,10 @@
 </nav>
 
 <div class="container mt-5">
+    <div th:if="${mensaje}" class="alert alert-success" th:text="${mensaje}"></div>
+
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-sm-12 card p-4">
             <h1 class="text-center">Lista de Marcas</h1>
@@ -34,12 +38,18 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Acciones</th> <!-- Nueva columna para acciones -->
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="marca : ${marcas}">
                     <td th:text="${marca.idMarca}"></td>
                     <td th:text="${marca.nombre}"></td>
+                    <td>
+                        <a th:href="@{/marcas/eliminar/{idMarca}(idMarca=${marca.idMarca})}" onclick="return confirm('¿Estás seguro de que deseas eliminar esta marca?');" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
