@@ -1,9 +1,9 @@
 package com.backend.ControlCar.controller;
 
+import com.backend.ControlCar.model.Documento;
 import com.backend.ControlCar.model.Marca;
-import com.backend.ControlCar.model.PicoPlaca;
+import com.backend.ControlCar.repository.DocumentoRepository;
 import com.backend.ControlCar.repository.MarcaRepository;
-import com.backend.ControlCar.repository.PicoPlacaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/picoPlacas")
-public class PicoPlacaController {
+@RequestMapping("/documentos")
+public class DocumentosController {
 
     @Autowired
-    public PicoPlacaRepository PicoPlacaRepository;
+    public DocumentoRepository documentoRepository;
 
     @GetMapping("/")
     public String lista(Model model) {
-        // Obtengo el Pico y placa de la BD
-        ArrayList<PicoPlaca> picoPlacas = (ArrayList<PicoPlaca>) PicoPlacaRepository.findAll();
+        // Obtengo los documentos de la BD
+        ArrayList<Documento> documentos = (ArrayList<Documento>) documentoRepository.findAll();
 
-        // Mando la lista de vehiculos  la vista pico y placa
-        model.addAttribute("picoPlacas", picoPlacas);
+        // Mando la lista de documentos a la vista
+        model.addAttribute("documentos", documentos);
 
-        return "picoPlacas/lista";
+        return "documentos/lista";
     }
 }
