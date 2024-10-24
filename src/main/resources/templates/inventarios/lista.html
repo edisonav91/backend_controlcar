@@ -26,6 +26,10 @@
 </nav>
 
 <div class="container mt-5">
+    <div th:if="${mensaje}" class="alert alert-success" th:text="${mensaje}"></div>
+
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-sm-12 card p-4">
             <h1 class="text-center">Lista de inventarios</h1>
@@ -38,6 +42,7 @@
                     <th>Actualmente vigente</th>
                     <th>Fecha</th>
                     <th>Comentario</th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,8 +53,13 @@
                     <td th:text="${inventario.picoPlaca.vigente}"></td>
                     <td th:text="${inventario.fecha}"></td>
                     <td th:text="${inventario.comentario}"></td>
+                    <td>
+                        <a th:href="@{/inventario/eliminar/{idInventario}(idInventario=${inventario.idInventario})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este inventario?');" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
                 </tr>
-                </tbody>x|
+                </tbody>
             </table>
         </div>
     </div>
