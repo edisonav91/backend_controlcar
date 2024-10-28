@@ -40,6 +40,7 @@
                     <th>Dia</th>
                     <th>Numero</th>
                     <th>Vigente</th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,11 @@
                     <td th:text="${picoPlaca.dia}"></td>
                     <td th:text="${picoPlaca.numero}"></td>
                     <td th:text="${picoPlaca.vigente}"></td>
+                    <td>
+                        <a th:href="@{/picoPlacas/eliminar/{idPicoPlca}(idPicoPlaca=${picoPlaca.idPicoPlaca})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este Pico y placa?');" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

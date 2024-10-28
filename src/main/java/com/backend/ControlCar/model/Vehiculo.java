@@ -25,7 +25,7 @@ public class Vehiculo {
 
     private int modelo;
 
-    private int color;
+    private String color;
 
     private String placa;
 

@@ -42,6 +42,7 @@
                     <th>Fin de vigencia</th>
                     <th>Documento vigente</th>
                     <th>Activo</th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,6 +52,11 @@
                     <td th:text="${documento.fechaInicioVigencia}"></td>
                     <td th:text="${documento.fechaFinVigencia}"></td>
                     <td th:text="${documento.activo}"></td>
+                    td>
+                    <a th:href="@{/documentos/eliminar/{idDocumento}(idDocumento=${documento.idDocumento})}" onclick="return confirm('¿Estás seguro de que deseas eliminar esta Documento?');" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

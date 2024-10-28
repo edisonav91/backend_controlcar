@@ -34,7 +34,7 @@ public class InventariosController {
     }
         @GetMapping("/eliminar/{id}")
         public String eliminar(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
-            // Verificar si la marca existe
+            // Verificar si la inventario existe
             if (inventarioRepository.existsById(id)) {
                 inventarioRepository.deleteById(id);
                 redirectAttributes.addFlashAttribute("mensaje", "Inventario eliminado con éxito.");
