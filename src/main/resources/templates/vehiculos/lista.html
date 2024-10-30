@@ -19,7 +19,7 @@
                 <a class="nav-link" href="/inicio"><i class="fas fa-home"></i> Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/vehiculos/"><i class="fas fa-car"></i> Vehiculo</a>
+                <a class="nav-link" href="/vehiculos/"><i class="fas fa-id-card"></i> Vehículos</a>
             </li>
         </ul>
     </div>
@@ -33,42 +33,46 @@
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-sm-12 card p-4">
             <h1 class="text-center">Lista de Vehiculos</h1>
-            <table class="table table-bordered text-center mt-4">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Referencia</th>
-                    <th>Modelo</th>
-                    <th>Color</th>
-                    <th>Placa</th>
-                    <th>Vin</th>
-                    <th>Transmision4x4</th>
-                    <th>Caja_Mecanica</th>
-                    <th>Caja_Cantidad_Pasajeros</th>
-                    <th>Caja_Eliminado</th>
-                    <th>Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="vehiculo : ${vehiculos}">
-                    <td th:text="${vehiculo.idVehiculo}"></td>
-                    <td th:text="${vehiculo.referencia.idReferencia}"></td>
-                    <td th:text="${vehiculo.modelo}"></td>
-                    <td th:text="${vehiculo.color}"></td>
-                    <td th:text="${vehiculo.placa}"></td>
-                    <td th:text="${vehiculo.vin}"></td>
-                    <td th:text="${vehiculo.transmision4x4}"></td>
-                    <td th:text="${vehiculo.caja_mecanica}"></td>
-                    <td th:text="${vehiculo.cantidad_pasajeros}"></td>
-                    <td th:text="${vehiculo.eliminado}"></td>
-                    <td>
-                        <a th:href="@{/vehiculos/eliminar/{idVehiculo}(idVehiculo=${vehiculo.idVehiculo})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este vehiculo?');" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive"> <!-- Añadimos el contenedor con scroll en X -->
+                <table class="table table-bordered text-center mt-4">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Referencia</th>
+                        <th>Modelo</th>
+                        <th>Color</th>
+                        <th>Placa</th>
+                        <th>Vin</th>
+                        <th>Transmision4x4</th>
+                        <th>Caja Mecanica</th>
+                        <th>Cantidad Pasajeros</th>
+                        <th>Eliminado</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="vehiculo : ${vehiculos}">
+                        <td th:text="${vehiculo.idVehiculo}"></td>
+                        <td th:text="${vehiculo.referencia.nombre}"></td>
+                        <td th:text="${vehiculo.modelo}"></td>
+                        <td th:text="${vehiculo.color}"></td>
+                        <td th:text="${vehiculo.placa}"></td>
+                        <td th:text="${vehiculo.vin}"></td>
+                        <td th:text="${vehiculo.transmision4x4}"></td>
+                        <td th:text="${vehiculo.cajaMecanica}"></td>
+                        <td th:text="${vehiculo.cantidadPasajeros}"></td>
+                        <td th:text="${vehiculo.eliminado}"></td>
+                        <td>
+                            <a th:href="@{/vehiculos/eliminar/{idVehiculo}(idVehiculo=${vehiculo.idVehiculo})}"
+                               onclick="return confirm('¿Estás seguro de que deseas eliminar este vehiculo?');"
+                               class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -16,10 +16,10 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/inicio"><i class="fas fa-home"></i> Inicio</a>
+                <a class="nav-link" href="/inicio"><i class="fas fa-id-card"></i> Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/documentos/"><i class="fas fa-car"></i> Documento</a>
+                <a class="nav-link" href="/documentos/"><i class="fas fa-car"></i> Documentos</a>
             </li>
         </ul>
     </div>
@@ -41,7 +41,6 @@
                     <th>Inicio de vigencia</th>
                     <th>Fin de vigencia</th>
                     <th>Documento vigente</th>
-                    <th>Activo</th>
                     <th>Acciones</th>
                 </tr>
                 </thead>
@@ -52,10 +51,10 @@
                     <td th:text="${documento.fechaInicioVigencia}"></td>
                     <td th:text="${documento.fechaFinVigencia}"></td>
                     <td th:text="${documento.activo}"></td>
-                    td>
-                    <a th:href="@{/documentos/eliminar/{idDocumento}(idDocumento=${documento.idDocumento})}" onclick="return confirm('¿Estás seguro de que deseas eliminar esta Documento?');" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
+                    <td>
+                        <a th:href="@{/documentos/eliminar/{idDocumento}(idDocumento=${documento.idDocumento})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este documento?');" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
                     </td>
                 </tr>
                 </tbody>

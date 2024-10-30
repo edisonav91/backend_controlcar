@@ -21,7 +21,7 @@ public class Vehiculo {
     @OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Inventario> inventarios;
 
-    private String numero_chasis;
+    private String numeroChasis;
 
     private int modelo;
 

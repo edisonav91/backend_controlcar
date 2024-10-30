@@ -40,6 +40,6 @@ public class VehiculosController {
         } else {
             redirectAttributes.addFlashAttribute("error", "Vehiculo no encontrado.");
         }
-        return "redirect:/marcas/";
+        return "redirect:/vehiculos/";
     }
 }
