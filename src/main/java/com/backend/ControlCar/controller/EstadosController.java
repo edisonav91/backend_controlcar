@@ -1,13 +1,12 @@
 package com.backend.ControlCar.controller;
 
 import com.backend.ControlCar.model.Estado;
+import com.backend.ControlCar.model.Marca;
 import com.backend.ControlCar.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
@@ -42,4 +41,22 @@ public class EstadosController {
             return "redirect:/estado/";
     }
 
+    @PostMapping("/guardar")
+    public String guardarMarca(@ModelAttribute Marca marca, RedirectAttributes redirectAttributes) {
+        try {
+            estadoRepository.save(new Estado());
+            redirectAttributes.addFlashAttribute("mensaje", "Marca agregada con éxito.");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Hubo un problema al guardar la marca.");
+        }
+        return "redirect:/marcas/";
+    }
+
+    @GetMapping("/crear")
+    public String crear(Model model) {
+        ArrayList<Estado> estados = (ArrayList<Estado>) estadoRepository.findAll();
+        model.addAttribute("estado", new Estado());
+        return "estados/crear";
+    }
 }
+
