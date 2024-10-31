@@ -32,30 +32,18 @@
 
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-sm-12 card p-4">
-            <h1 class="text-center">Lista de Marcas</h1>
-            <div class="d-flex justify-content-end mb-3">
-                <a href="/marcas/crear" class="btn btn-success">Agregar Nueva Marca</a>
+            <h1 class="text-center">Crear Marca</h1>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <form th:action="@{/marcas/guardar}" th:object="${marca}" method="post" class="mt-4">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre de la Marca</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control" th:field="*{nombre}" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
             </div>
-            <table class="table table-bordered text-center mt-4">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="marca : ${marcas}">
-                    <td th:text="${marca.idMarca}"></td>
-                    <td th:text="${marca.nombre}"></td>
-                    <td>
-                        <a th:href="@{/marcas/eliminar/{idMarca}(idMarca=${marca.idMarca})}" onclick="return confirm('¿Estás seguro de que deseas eliminar esta marca?');" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>
