@@ -1,7 +1,6 @@
 package com.backend.ControlCar.controller;
 
 import com.backend.ControlCar.model.Estado;
-import com.backend.ControlCar.model.Marca;
 import com.backend.ControlCar.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,29 +26,29 @@ public class EstadosController {
         model.addAttribute("estados", estados);
 
         return "estados/lista";
+    }
 
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+        // Verificar si el estado existe
+        if (estadoRepository.existsById(id)) {
+            estadoRepository.deleteById(id);
+            redirectAttributes.addFlashAttribute("mensaje", "Estado eliminada con éxito.");
+        } else {
+            redirectAttributes.addFlashAttribute("error", "Estado no encontrada.");
         }
-        @GetMapping("/eliminar/{id}")
-        public String eliminar(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
-            // Verificar si la marca existe
-            if (estadoRepository.existsById(id)) {
-                estadoRepository.deleteById(id);
-                redirectAttributes.addFlashAttribute("mensaje", "Estado eliminada con éxito.");
-            } else {
-                redirectAttributes.addFlashAttribute("error", "Estado no encontrada.");
-            }
-            return "redirect:/estado/";
+        return "redirect:/estados/";
     }
 
     @PostMapping("/guardar")
-    public String guardarMarca(@ModelAttribute Marca marca, RedirectAttributes redirectAttributes) {
+    public String guardarEstado(@ModelAttribute Estado estado, RedirectAttributes redirectAttributes) {
         try {
-            estadoRepository.save(new Estado());
-            redirectAttributes.addFlashAttribute("mensaje", "Marca agregada con éxito.");
+            estadoRepository.save(estado);
+            redirectAttributes.addFlashAttribute("mensaje", "Estado agregado con éxito.");
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Hubo un problema al guardar la marca.");
+            redirectAttributes.addFlashAttribute("error", "Hubo un problema al guardar el estado.");
         }
-        return "redirect:/marcas/";
+        return "redirect:/estados/";
     }
 
     @GetMapping("/crear")

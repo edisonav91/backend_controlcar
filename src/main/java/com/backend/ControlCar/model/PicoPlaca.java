@@ -20,7 +20,7 @@ public class PicoPlaca {
     @OneToMany(mappedBy = "picoPlaca", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Inventario> inventarios;
 
-   private LocalDateTime dia;
+    private String dia;
 
     private int numero;
 
