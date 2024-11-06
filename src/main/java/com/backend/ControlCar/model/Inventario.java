@@ -14,9 +14,11 @@ public class Inventario {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int idInventario;
+
     private int kmActual;
 
-    private LocalDateTime fecha;
+    private String fecha;
 
     private String comentario;
 
@@ -29,8 +31,6 @@ public class Inventario {
     private Estado estado;
 
     @ManyToOne()
-    @JoinColumn(name = "id_pico_placa")
+    @JoinColumn(name = "idPicoPlaca")
     private PicoPlaca picoPlaca;
-
-
 }
