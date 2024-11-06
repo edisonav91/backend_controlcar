@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/inventario")
+@RequestMapping("/inventarios")
 public class InventariosController {
 
     @Autowired
@@ -41,6 +41,6 @@ public class InventariosController {
             } else {
                 redirectAttributes.addFlashAttribute("error", "Inventario no encontrada.");
             }
-            return "redirect:/inventario/";
+            return "redirect:/inventarios/";
     }
 }

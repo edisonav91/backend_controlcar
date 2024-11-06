@@ -17,9 +17,9 @@ public class Documento {
 
     private String nombre;
 
-    private LocalDateTime fechaInicioVigencia;
+    private String fechaInicioVigencia;
 
-    private LocalDateTime fechaFinVigencia;
+    private String fechaFinVigencia;
 
     private boolean activo;
 
