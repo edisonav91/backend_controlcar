@@ -1,9 +1,6 @@
 package com.backend.ControlCar.controller;
 
-import com.backend.ControlCar.model.Estado;
-import com.backend.ControlCar.model.Marca;
 import com.backend.ControlCar.model.PicoPlaca;
-import com.backend.ControlCar.repository.MarcaRepository;
 import com.backend.ControlCar.repository.PicoPlacaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,7 +55,6 @@ public class PicoPlacaController {
 
     @GetMapping("/crear")
     public String crear(Model model) {
-        ArrayList<PicoPlaca> picoPlacas = (ArrayList<PicoPlaca>) picoPlacaRepository.findAll();
         model.addAttribute("picoPlaca", new PicoPlaca());
         return "picoPlacas/crear";
     }

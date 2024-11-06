@@ -53,7 +53,6 @@ public class EstadosController {
 
     @GetMapping("/crear")
     public String crear(Model model) {
-        ArrayList<Estado> estados = (ArrayList<Estado>) estadoRepository.findAll();
         model.addAttribute("estado", new Estado());
         return "estados/crear";
     }

@@ -53,7 +53,6 @@ public class MarcasController {
 
     @GetMapping("/crear")
     public String crear(Model model) {
-        ArrayList<Marca> marcas = (ArrayList<Marca>) marcaRepository.findAll();
         model.addAttribute("marca", new Marca());
         return "marcas/crear";
     }
