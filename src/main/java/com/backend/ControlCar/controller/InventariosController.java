@@ -1,6 +1,7 @@
 package com.backend.ControlCar.controller;
 
 import com.backend.ControlCar.model.Inventario;
+import com.backend.ControlCar.model.Vehiculo;
 import com.backend.ControlCar.repository.EstadoRepository;
 import com.backend.ControlCar.repository.InventarioRepository;
 import com.backend.ControlCar.repository.PicoPlacaRepository;
@@ -10,8 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/inventarios")
@@ -27,15 +27,24 @@ public class InventariosController {
     private PicoPlacaRepository picoPlacaRepository;
 
     @GetMapping("/")
-    public String lista(Model model) {
+    public String lista(@RequestParam(required = false) Integer vehiculoId, Model model) {
+        List<Inventario> inventarios;
+
         // Obtengo los datos inventario de la BD
-        ArrayList<Inventario> inventarios = (ArrayList<Inventario>) inventarioRepository.findAll();
+        if (vehiculoId != null) {
+            // Filtra los inventarios por vehículo y los ordena por fecha descendente
+            inventarios = inventarioRepository.findByVehiculo_IdVehiculoOrderByFechaDesc(vehiculoId);
+        } else {
+            inventarios = inventarioRepository.findAllByOrderByFechaDesc();
+        }
 
         // Mando la lista de inventario a la vista
         model.addAttribute("inventarios", inventarios);
 
-        return "inventarios/lista";
+        List<Vehiculo> vehiculos = vehiculoRepository.findAll();
+        model.addAttribute("vehiculos", vehiculos);
 
+        return "inventarios/lista";
     }
 
     @GetMapping("/eliminar/{id}")

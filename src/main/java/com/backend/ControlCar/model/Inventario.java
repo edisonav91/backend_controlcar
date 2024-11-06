@@ -1,11 +1,8 @@
 package com.backend.ControlCar.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import lombok.Data;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -24,13 +21,16 @@ public class Inventario {
 
     @ManyToOne()
     @JoinColumn(name = "idVehiculo")
+    @ToString.Exclude
     private Vehiculo vehiculo;
 
     @ManyToOne()
     @JoinColumn(name = "idEstado")
+    @ToString.Exclude
     private Estado estado;
 
     @ManyToOne()
     @JoinColumn(name = "idPicoPlaca")
+    @ToString.Exclude
     private PicoPlaca picoPlaca;
 }

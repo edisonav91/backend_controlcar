@@ -33,7 +33,14 @@
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-sm-12 card p-4">
             <h1 class="text-center">Lista de inventarios</h1>
-            <div class="d-flex justify-content-end mb-3">
+            <div class="d-flex justify-content-between mb-3">
+                <form method="get" action="/inventarios/" class="d-flex">
+                    <select name="vehiculoId" class="form-select w-auto me-2">
+                        <option value="">Todos los vehículos</option>
+                        <option th:each="vehiculo : ${vehiculos}" th:value="${vehiculo.idVehiculo}" th:text="${vehiculo.placa}"></option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                </form>
                 <a href="/inventarios/crear" class="btn btn-success">Agregar Inventario</a>
             </div>
             <table class="table table-bordered text-center mt-4">

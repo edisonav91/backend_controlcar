@@ -2,8 +2,7 @@ package com.backend.ControlCar.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.jpa.repository.JpaRepository;
-
+import lombok.ToString;
 import java.util.List;
 
 @Entity
@@ -16,10 +15,10 @@ public class Marca {
     public int idMarca;
 
     @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
     private List<Referencia> referencia;
 
     public String nombre;
-
 }
 
 
